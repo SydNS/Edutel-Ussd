@@ -22,24 +22,36 @@ else if ($text == "1") {
 else if ($text == "1*1") {
     $response = "EDUTEL Youre welcome to Edutel Educational Services \n";
     $response .= "Please Enter 1 to confirm \n";
-}
-else if ($text == "1*1*1") {
+} else if ($text == "1*1*1") {
     $response = "EDUTEL Education Services\n";
     $response .= "Enter 1 to continue \n";
     $response .= "Enter 0 to cancel";
-    }
-    else if ($text == "1*1*1*1") {
-    $response = "END Your Table reservation for 2 has been booked";
-    }
-
-    else if ($text == "1*1*1*1*1") {
-        $response = "EDUTEL Enter Your Education Level\n";
-        $response .= "Enter 1 to choose Primary \n";
-        $response .= "Enter 2 to choose Secoondary \n";
-        $response .= "Enter 3 to choose Tertiary \n";
-        $response .= "Enter 0 to cancel";
-        }
-
-    else if ($text == "1*1*1*0") {
+} else if ($text == "1*1*1*1") {
+    $response = "EDUTEL Enter Your Education Level\n";
+    $response .= "Enter 1 to choose Primary \n";
+    $response .= "Enter 2 to choose Secondary \n";
+    $response .= "Enter 3 to choose Tertiary \n";
+    $response .= "Enter 0 to cancel";
+} else if ($text == "1*1*1*1*1") {
+    $response = "EDUTEL Education Level for Primary enter Class\n";
+    $response .= "Enter 1 to choose Primary One\n";
+    $response .= "Enter 2 to choose Primary Two\n";
+    $response .= "Enter 3 to choose Primary Three\n";
+    $response .= "Enter 4 to choose Primary Four\n";
+    $response .= "Enter 5 to choose Primary Five\n";
+    $response .= "Enter 6 to choose Primary Six\n";
+    $response .= "Enter 7 to choose Primary SEven\n";
+    $response .= "Enter 0 to cancel";
+} else if ($text == "1*1*1*1*1*1") {
+    $response = "EDUTEL Education Primary One Level\n";
+    $response .= "Enter 1 to confirm\n";
+    $response .= "Enter 0 to cancel";
+} else if ($text == "1*1*1*1*1*1*1") {
+    $response = "EDUTEL Education Primary One Level\n";
+    $response .= "You have Joined Class P-1";
+    $response .= "Enter 0 to cancel";
+} else if ($text == "1*1*1*0") {
     $response = "END Your Education services application has canceled";
-    }
+}
+// 
+// 
