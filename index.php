@@ -17,3 +17,9 @@ else if ($text == "1") {
     $response .= "3. Medical Service \n";
     $response .= "4. Transport Service \n";
 }
+//Menu for a user who selects '1' from the second menu above
+// Will be brought to this third menu screen
+else if ($text == "1*1") {
+    $response = "EDUTEL Youre welcome to Edutel Educational Services \n";
+    $response .= "Please Enter 1 to confirm \n";
+}
