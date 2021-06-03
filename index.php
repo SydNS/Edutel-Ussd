@@ -23,3 +23,23 @@ else if ($text == "1*1") {
     $response = "EDUTEL Youre welcome to Edutel Educational Services \n";
     $response .= "Please Enter 1 to confirm \n";
 }
+else if ($text == "1*1*1") {
+    $response = "EDUTEL Education Services\n";
+    $response .= "Enter 1 to continue \n";
+    $response .= "Enter 0 to cancel";
+    }
+    else if ($text == "1*1*1*1") {
+    $response = "END Your Table reservation for 2 has been booked";
+    }
+
+    else if ($text == "1*1*1*1*1") {
+        $response = "EDUTEL Enter Your Education Level\n";
+        $response .= "Enter 1 to choose Primary \n";
+        $response .= "Enter 2 to choose Secoondary \n";
+        $response .= "Enter 3 to choose Tertiary \n";
+        $response .= "Enter 0 to cancel";
+        }
+
+    else if ($text == "1*1*1*0") {
+    $response = "END Your Education services application has canceled";
+    }
