@@ -53,5 +53,3 @@ else if ($text == "1*1") {
 } else if ($text == "1*1*1*0") {
     $response = "END Your Education services application has canceled";
 }
-// 
-// 
