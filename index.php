@@ -52,5 +52,9 @@ else if ($text == "1*1") {
     $response .= "You have Joined Class P-1";
     $response .= "Enter 0 to cancel";
 } else if ($text == "1*1*1*0") {
-    $response = "CON END Your Education services application has canceled";
+    $response = "END Your Education services application has canceled";
 }
+
+//echo response
+header('Content-type: text/plain');
+echo $response;
