@@ -48,7 +48,7 @@ else if ($text == "1*1") {
     $response .= "Enter 1 to confirm\n";
     $response .= "Enter 0 to cancel";
 } else if ($text == "1*1*1*1*1*1*1") {
-    $response = "CON EDUTEL Education Primary One Level\n";
+    $response = "END EDUTEL Education Primary One Level\n";
     $response .= "You have Joined Class P-1";
     $response .= "Enter 0 to cancel";
 } else if ($text == "1*1*1*0") {
