@@ -73,21 +73,41 @@ else if ($text == "1*1") {
     $response .= "3 to choose Poultry Farming \n";
     $response .= "0 to cancel";
 } else if ($text == "1*1*2*1*1") {
-    $response = "CON EDUTEL Farming Services Join the Group\n";
-    $response .= "1 to choose Primary One\n";
-    $response .= "2 to choose Primary Two\n";
+    $response = "CON EDUTEL Farming Services Join the Subsistence Farming Group\n";
+    $response .= "1 to Confirm\n";
     $response .= "0 to cancel";
-} else if ($text == "1*1*1*1*1*1") {
-    $response = "CON EDUTEL Education Primary One Level\n";
-    $response .= "1 to confirm\n";
+}  else if ($text == "1*1*2*1*2") {
+    $response = "CON EDUTEL Farming Services Join the Commercial Farming Group\n";
+    $response .= "1 to Confirm\n";
     $response .= "0 to cancel";
-} else if ($text == "1*1*1*1*1*1*1") {
-    $response = "END EDUTEL Education Primary One Level\n";
-    $response .= "You have Joined Class P-1";
+} else if ($text == "1*1*2*1*3") {
+    $response = "CON EDUTEL Farming Services Join the Crop Farming Farming Group\n";
+    $response .= "1 to Confirm\n";
     $response .= "0 to cancel";
-} else if ($text == "1*1*1*0") {
-    $response = "END Your Education services application has canceled";
 }
+else if ($text == "1*1*2*1*4") {
+    $response = "CON EDUTEL Farming Services Join the LiveStock Farming Group\n";
+    $response .= "1 to Confirm\n";
+    $response .= "0 to cancel";
+}
+
+
+
+
+
+
+
+// else if ($text == "1*1*1*1*1*1") {
+//     $response = "CON EDUTEL Education Primary One Level\n";
+//     $response .= "1 to confirm\n";
+//     $response .= "0 to cancel";
+// } else if ($text == "1*1*1*1*1*1*1") {
+//     $response = "END EDUTEL Education Primary One Level\n";
+//     $response .= "You have Joined Class P-1";
+//     $response .= "0 to cancel";
+// } else if ($text == "1*1*1*0") {
+//     $response = "END Your Education services application has canceled";
+// }
 
 
 
