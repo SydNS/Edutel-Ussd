@@ -462,13 +462,15 @@ function registration($details,$phone,$dbh){
         $acceptDeny=$details[10]; 
 
        if($acceptDeny=="1"){  
-          $stmt = $db->prepare("INSERT INTO payment_details 
-              (adm_no, first_name, last_name,class,paybill_number,amount,date_paid) VALUES('$admNo','$fName','$lName','$class','$paybill_number','$amount',NOW())");
+
+           $stmt = $dbh->prepare("INSERT INTO Registration 
+              (firstname, lastname, ageyears,telephone,district,indexnumber,english,sst,science,mtcs,reg_date) 
+              VALUES('$fName','$lName','$age','$index_number','$english','$sst','$science','$mtcs',NOW())");
 
         //execute insert query   
         $stmt->execute();
         if($stmt->errorCode() == 0) {
-            echo "END Thank you ".$fName." Payment was successful. You have paid Ugx ".$amount." to paybill number  ".$paybill_number;
+            echo "END Thank you ".$fName." Registration was successful."
              
           } else {
             $errors = $sth->errorInfo();
