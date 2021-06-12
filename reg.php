@@ -466,12 +466,13 @@ function registration($details,$phone,$dbh){
               VALUES('$fName','$lName','$age','$index_number','$english','$sst','$science','$mtcs',NOW())");
 
         //execute insert query   
+        //execute insert query   
         $stmt->execute();
         if($stmt->errorCode() == 0) {
-            echo "END Thank you ".$fName." Registration was successful."
+            echo "END Thank you ".$fName." Payment was successful. You have paid Ugx ".$amount." to paybill number  ".$paybill_number;
              
           } else {
-            $errors = $sth->errorInfo();
+            $errors = $stmt->errorInfo();
          }
       }
 
