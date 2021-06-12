@@ -469,7 +469,7 @@ function registration($details,$phone,$dbh){
         //execute insert query   
         $stmt->execute();
         if($stmt->errorCode() == 0) {
-            echo "END Thank you ".$fName." Payment was successful. You have paid Ugx ".$amount." to paybill number  ".$paybill_number;
+            echo "END Thank you ".$fName." Registration was successful";
              
           } else {
             $errors = $stmt->errorInfo();
