@@ -449,13 +449,17 @@ function registration($details,$phone,$dbh){
         }
 
         else if(count($details) == 7){ 
-          $admNo=$details[0];
-          $fName=$details[1];
-          $lName=$details[2];
-          $class=$details[3];
-          $paybill_number=$details[4];
-          $amount=$details[5]; 
-        $acceptDeny=$details[6]; 
+            $fName=$details[0];
+            $lName=$details[1];
+            $age=$details[2];
+            $index_number=$details[3];
+            $english=$details[4];
+            $sst=$details[5];
+            $science=$details[6];
+            $mtcs=$details[7];
+            $district=$details[8];    
+            $telephone=$details[9];  
+        $acceptDeny=$details[10]; 
 
        if($acceptDeny=="1"){  
           $stmt = $db->prepare("INSERT INTO payment_details 
