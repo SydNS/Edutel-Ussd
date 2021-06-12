@@ -63,7 +63,7 @@
                
                // If user selected 2 send them to the exam results menu
                 case 2: 
-                exam_results($ussd_string_explode,$phone,$db);  
+                registration($ussd_string_explode,$phone,$db);  
                 break;  
                
                // If user selected 3 send them to the events menu
@@ -88,7 +88,7 @@
        
     //This is the home menu function
     function displayMenu(){
-    $ussd_text ="Welcome to Edutele\n 1. Fee Balance \n 2. Exam Results \n 3. Upcoming Events \n 4. Fee Structure \n 5. Pay Fees\n "; 
+    $ussd_text ="Welcome to Edutele\n 1. Fee Balance \n 2. Register \n 3. Info about the School \n 4. Fee Structure \n 5. Pay Fees\n "; 
     ussd_proceed($ussd_text);
     }
         
@@ -113,7 +113,7 @@
     }
     
     
-    function fee_balance($details,$phone,$db){  
+function fee_balance($details,$phone,$db){  
       
          if (count($details)==1)
           {  
@@ -159,8 +159,6 @@
       }  
 }
     
-
-        
       
 function info_at_school($details,$phone,$db) {  
            
