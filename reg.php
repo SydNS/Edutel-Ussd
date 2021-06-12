@@ -347,12 +347,6 @@ function register($details,$phone, $dbh){
       $sth = $dbh->prepare("INSERT INTO customers (full_name, email, phone) VALUES('$full_name','$email','$phone_number')");
       //execute insert query   
       $sth->execute();
-
-
-
-
-
-
       if($sth->errorCode() == 0) {
           $ussd_text = $full_name." your registration was successful. Your email is ".$email." and phone number is ".$phone_number;
           ussd_proceed($ussd_text);
@@ -360,6 +354,7 @@ function register($details,$phone, $dbh){
           $errors = $sth->errorInfo();
       }
   }
+
 }
 }
 
@@ -416,9 +411,6 @@ function registration($details,$phone,$dbh){
         $ussd_text = "Enter the Telephone";
         ussd_proceed($ussd_text);
         }
-
-
-
     else if(count($details) == 11){
         $fName=$details[0];
         $lName=$details[1];
@@ -431,45 +423,32 @@ function registration($details,$phone,$dbh){
         $district=$details[8];    
         $telephone=$details[9];    
  
-        echo  "CON Confirm\n 1. Accept \n 2. Cancel \n
-        Index number: " . $index_number . "\n" .
-        "Fullnames: " . $fName. " " . $lName . "\n" .
-        "Telephone: " . $telephone . "\n" .
-        "Age: " . $age . "\n" .
-        "District: " . $district . "\n" .
-
-        "\nSubjects in Primary Leaving Exams \n".
-        "English: " . $english . "\n".
-        "Mathematics: " . $mtcs . "\n".
-        "Science: " . $science . "\n".
-        "SST: " . $sst . "\n".
+        echo  "CON Confirm\n 1. Accept \n 2. Cancel \n";
+  
 
         }
 
-        else if(count($details) == 7){ 
-            $fName=$details[0];
-            $lName=$details[1];
-            $age=$details[2];
-            $index_number=$details[3];
-            $english=$details[4];
-            $sst=$details[5];
-            $science=$details[6];
-            $mtcs=$details[7];
-            $district=$details[8];    
-            $telephone=$details[9];  
+        else if(count($details) == 12){ 
+        $fName=$details[0];
+        $lName=$details[1];
+        $age=$details[2];
+        $index_number=$details[3];
+        $english=$details[4];
+        $sst=$details[5]; 
+        $science=$details[6];
+        $mtcs=$details[7];
+        $district=$details[8];    
+        $telephone=$details[9];
         $acceptDeny=$details[10]; 
 
        if($acceptDeny=="1"){  
 
-           $stmt = $dbh->prepare("INSERT INTO Registration 
-              (firstname, lastname, ageyears,telephone,district,indexnumber,english,sst,science,mtcs,reg_date) 
-              VALUES('$fName','$lName','$age','$index_number','$english','$sst','$science','$mtcs',NOW())");
+$stmt = $dbh->prepare("INSERT INTO Registration(firstname, lastname, ageyears,telephone,district,indexnumber,english,sst,science,mtcs,reg_date) VALUES('$fName','$lName','$age','$index_number','$telephone','$district','$english','$sst','$science','$mtcs',NOW())");
 
-        //execute insert query   
-        //execute insert query   
+
         $stmt->execute();
         if($stmt->errorCode() == 0) {
-            echo "END Thank you ".$fName." Registration was successful";
+            echo "CON Thank you ".$fName." Registration was successful";
              
           } else {
             $errors = $stmt->errorInfo();
