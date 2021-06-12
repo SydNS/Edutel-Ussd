@@ -339,6 +339,7 @@ function register($details,$phone, $dbh){
               "Sorry we do not accept blank values";
               ussd_proceed($ussd_text);
       } else {
+
       $input = explode(",",$details[1]);//store input values in an array
       $full_name = $input[0];//store full name
       $email = $input[1];//store email
@@ -348,6 +349,12 @@ function register($details,$phone, $dbh){
       $sth = $dbh->prepare("INSERT INTO customers (full_name, email, phone) VALUES('$full_name','$email','$phone_number')");
       //execute insert query   
       $sth->execute();
+
+
+
+
+
+
       if($sth->errorCode() == 0) {
           $ussd_text = $full_name." your registration was successful. Your email is ".$email." and phone number is ".$phone_number;
           ussd_proceed($ussd_text);
@@ -356,6 +363,107 @@ function register($details,$phone, $dbh){
       }
   }
 }
+}
+
+
+function registration($details,$phone,$dbh){
+
+    if (count($details)==1){
+        $ussd_text="Enter your first name";
+        ussd_proceed($ussd_text);
+        }
+
+      else if(count($details) == 2){
+      $ussd_text = "Enter your last name";
+      ussd_proceed($ussd_text);
+       }
+
+      else if(count($details) == 3){
+        $class=$details[1]; 
+      echo  "CON Select Class \n 1. Form 1 \n 2. Form 2 \n
+      3. Form 3 \n 4. Form 4 \n 5. Form 5 \n 6. Form 6 \n 7. Form 7 \n";
+
+        if($class=="1"){
+            $class="Form 1";
+
+        }else if($class=="2"){
+        $class="Form 2";
+
+        }else if($class=="3"){
+        $class="Form 3";
+
+        }else if($class=="4"){
+        $class="Form 4";
+       }
+       else if($class=="5"){
+        $class="Form 5";
+
+        }else if($class=="6"){
+        $class="Form 6";
+
+        }
+       
+
+       
+      }
+       
+     else if (count($details)==4){
+       $ussd_text="Enter paybill number";
+       ussd_proceed($ussd_text);
+       }
+
+    else if(count($details) == 5){
+       $ussd_text = "Enter the Amount";
+       ussd_proceed($ussd_text);
+       }
+
+    else if(count($details) == 6){
+        $admNo=$details[0];
+        $fName=$details[1];
+        $lName=$details[2];
+        $class=$details[3];
+        $paybill_number=$details[4];
+        $amount=$details[5];  
+ 
+        echo  "CON Confirm\n 1. Accept \n 2. Cancel \n
+        Admission number: " . $admNo . "\n" .
+        "Fullnames: " . $fName. " " . $lName . "\n" .
+        "Form: " . $class . "\n" .
+        "Paybill Nunber: " . $paybill_number . "\n".
+        "Amount: " . $amount . "\n" ;
+
+        }
+
+        else if(count($details) == 7){ 
+          $admNo=$details[0];
+          $fName=$details[1];
+          $lName=$details[2];
+          $class=$details[3];
+          $paybill_number=$details[4];
+          $amount=$details[5]; 
+        $acceptDeny=$details[6]; 
+
+       if($acceptDeny=="1"){  
+          $stmt = $db->prepare("INSERT INTO payment_details 
+              (adm_no, first_name, last_name,class,paybill_number,amount,date_paid) VALUES('$admNo','$fName','$lName','$class','$paybill_number','$amount',NOW())");
+
+        //execute insert query   
+        $stmt->execute();
+        if($stmt->errorCode() == 0) {
+            echo "END Thank you ".$fName." Payment was successful. You have paid Ugx ".$amount." to paybill number  ".$paybill_number;
+             
+          } else {
+            $errors = $sth->errorInfo();
+         }
+      }
+
+     }
+
+    else{//Choice is cancel  
+      echo "END Your session is over";  
+       
+       }  
+
 }
 
 
