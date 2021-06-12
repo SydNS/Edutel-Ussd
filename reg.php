@@ -327,13 +327,13 @@ function lipa_na_mpesa($details,$phone,$db){
 
 // Function that handles Registration menu
 function register($details,$phone, $dbh){
-  if(count($details) == 2)
+  if(count($details) == 1)
   {
       
       $ussd_text = "CON Please enter your Full Name and Email, each seperated by commas:";
       echo $ussd_text; // ask user to enter registration details
   }
-  if(count($details)== 3)
+  if(count($details)== 2)
   {
       if (empty($details[1])){
               "Sorry we do not accept blank values";
