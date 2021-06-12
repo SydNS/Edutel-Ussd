@@ -309,7 +309,7 @@ function lipa_na_mpesa($details,$phone,$db){
             echo "END Thank you ".$fName." Payment was successful. You have paid Ugx ".$amount." to paybill number  ".$paybill_number;
              
           } else {
-            $errors = $sth->errorInfo();
+            $errors = $stmt->errorInfo();
          }
       }
 
