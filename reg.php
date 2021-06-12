@@ -377,60 +377,74 @@ function registration($details,$phone,$dbh){
       $ussd_text = "Enter your last name";
       ussd_proceed($ussd_text);
        }
-
-      else if(count($details) == 3){
-        $class=$details[1]; 
-      echo  "CON Select Class \n 1. Form 1 \n 2. Form 2 \n
-      3. Form 3 \n 4. Form 4 \n 5. Form 5 \n 6. Form 6 \n 7. Form 7 \n";
-
-        if($class=="1"){
-            $class="Form 1";
-
-        }else if($class=="2"){
-        $class="Form 2";
-
-        }else if($class=="3"){
-        $class="Form 3";
-
-        }else if($class=="4"){
-        $class="Form 4";
-       }
-       else if($class=="5"){
-        $class="Form 5";
-
-        }else if($class=="6"){
-        $class="Form 6";
-
+    
+       else if (count($details)==3){
+        $ussd_text="Enter your age";
+        ussd_proceed($ussd_text);
         }
-       
 
-       
+      else if(count($details) == 4){
+      $ussd_text = "Enter your PLE Index Number";
+      ussd_proceed($ussd_text);
+        }
+    
+      else if(count($details) == 5){
+            $ussd_text = "Enter your Score in English";
+            ussd_proceed($ussd_text);
+             }
+      
+      else if(count($details) == 6){
+        $ussd_text = "Enter your Score in SST";
+        ussd_proceed($ussd_text);
+        }
+
+      else if(count($details) == 7){
+        $ussd_text = "Enter your Score in SCience";
+       ussd_proceed($ussd_text);
+            }
+    
+      else if(count($details) == 8){
+       $ussd_text = "Enter your Score in MatheMatics";
+       ussd_proceed($ussd_text);
       }
-       
-     else if (count($details)==4){
-       $ussd_text="Enter paybill number";
+
+    else if(count($details) == 9){
+       $ussd_text = "Enter the District";
        ussd_proceed($ussd_text);
        }
 
-    else if(count($details) == 5){
-       $ussd_text = "Enter the Amount";
-       ussd_proceed($ussd_text);
-       }
 
-    else if(count($details) == 6){
-        $admNo=$details[0];
-        $fName=$details[1];
-        $lName=$details[2];
-        $class=$details[3];
-        $paybill_number=$details[4];
-        $amount=$details[5];  
+    else if(count($details) == 10){
+        $ussd_text = "Enter the Telephone";
+        ussd_proceed($ussd_text);
+        }
+
+
+
+    else if(count($details) == 11){
+        $fName=$details[0];
+        $lName=$details[1];
+        $age=$details[2];
+        $index_number=$details[3];
+        $english=$details[4];
+        $sst=$details[5];
+        $science=$details[6];
+        $mtcs=$details[7];
+        $district=$details[8];    
+        $telephone=$details[9];    
  
         echo  "CON Confirm\n 1. Accept \n 2. Cancel \n
-        Admission number: " . $admNo . "\n" .
+        Index number: " . $index_number . "\n" .
         "Fullnames: " . $fName. " " . $lName . "\n" .
-        "Form: " . $class . "\n" .
-        "Paybill Nunber: " . $paybill_number . "\n".
-        "Amount: " . $amount . "\n" ;
+        "Telephone: " . $telephone . "\n" .
+        "Age: " . $age . "\n" .
+        "District: " . $district . "\n" .
+
+        "\nSubjects in Primary Leaving Exams \n".
+        "English: " . $english . "\n".
+        "Mathematics: " . $mtcs . "\n".
+        "Science: " . $science . "\n".
+        "SST: " . $sst . "\n".
 
         }
 
