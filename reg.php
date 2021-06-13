@@ -444,8 +444,7 @@ function registration($details,$phone,$dbh){
         $science=$details[7];
         $mtcs=$details[8];
         $district=$details[9];    
-        $telephone=$details[10];   
-       
+        $telephone=$details[10]; 
         $acceptDeny=$details[11]; 
 
      if($acceptDeny=="1"){  
@@ -453,9 +452,10 @@ function registration($details,$phone,$dbh){
      $stmt = $dbh->prepare("INSERT INTO Registration(firstname, lastname, ageyears,telephone,district,indexnumber,english,sst,science,mtcs,reg_date) VALUES('$fName','$lName','$age','$index_number','$telephone','$district','$english','$sst','$science','$mtcs',NOW())");
      $stmt->execute();
      if($stmt->errorCode() == 0) {
-      echo "END Thank you ".$fName." Registration was successful";
+      echo " END Thank you ".$fName." Registration was successful";
      } else {
             $errors = $stmt->errorInfo();
+            echo $errors;
          }
       }
 
@@ -467,11 +467,6 @@ function registration($details,$phone,$dbh){
        }  
 
 }
-
-
-
-
-
 
 
   # close the pdo connection  
