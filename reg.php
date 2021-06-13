@@ -421,8 +421,6 @@ function registration($details,$phone,$dbh){
         $district=$details[9];    
         $telephone=$details[10];    
  
-        echo  "CON Confirm\n 1. Accept \n 2. Cancel \n";
-
         echo  "CON Confirm\n 1. Accept \n 2. Cancel \n .
         Fullnames: " . $fName. " " . $lName . "\n" .
         "PLE Index Number: " . $index_number . "\n" .
@@ -469,6 +467,12 @@ function registration($details,$phone,$dbh){
        }  
 
 }
+
+
+
+
+
+
 
   # close the pdo connection  
    $db = null;
