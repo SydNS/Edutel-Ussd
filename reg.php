@@ -88,7 +88,7 @@
        
     //This is the home menu function
     function displayMenu(){
-    $ussd_text ="Welcome to Edutele\n 1. Fee Balance \n 2. Register \n 3. Info about the School \n 4. Fee Structure \n 5. Pay Fees\n "; 
+    $ussd_text ="Welcome to Edutele Services\n\n 1. Fee Balance \n 2. Register \n 3. Info about the School \n 4. Fee Structure \n 5. Pay Fees\n "; 
     ussd_proceed($ussd_text);
     }
         
@@ -244,7 +244,7 @@ function lipa_na_mpesa($details,$phone,$db){
 
       else if(count($details) == 3){
         $class=$details[1]; 
-      echo  "CON Select Class \n 1. Form 1 \n 2. Form 2 \n
+      echo  "CON Edutele Services\n\n Select Class \n 1. Form 1 \n 2. Form 2 \n
       3. Form 3 \n 4. Form 4 \n";
 
         if($class=="1"){
@@ -264,12 +264,12 @@ function lipa_na_mpesa($details,$phone,$db){
       }
        
      else if (count($details)==4){
-       $ussd_text="Enter paybill number";
+       $ussd_text="Edutele Services\n\nEnter paybill number";
        ussd_proceed($ussd_text);
        }
 
     else if(count($details) == 5){
-       $ussd_text = "Enter the Amount";
+       $ussd_text = "Edutele Services\n\nEnter the Amount";
        ussd_proceed($ussd_text);
        }
 
@@ -361,52 +361,52 @@ function register($details,$phone, $dbh){
 function registration($details,$phone,$dbh){
 
     if (count($details)==1){
-        $ussd_text="Enter your first name";
+        $ussd_text="Edutele Services\n\nEnter your first name";
         ussd_proceed($ussd_text);
         }
 
     else if(count($details) == 2){
-      $ussd_text = "Enter your last name";
+      $ussd_text = "Edutele Services\n\nEnter your last name";
       ussd_proceed($ussd_text);
        }
     
     else if (count($details)==3){
-        $ussd_text="Enter your age";
+        $ussd_text="Edutele Services\n\nEnter your age";
         ussd_proceed($ussd_text);
         }
 
     else if(count($details) == 4){
-      $ussd_text = "Enter your PLE Index Number";
+      $ussd_text = "Edutele Services\n\nEnter your PLE Index Number";
       ussd_proceed($ussd_text);
         }
     
     else if(count($details) == 5){
-            $ussd_text = "Enter your Score in English";
+            $ussd_text = "Edutele Services\n\nEnter your Score in English";
             ussd_proceed($ussd_text);
              }
       
     else if(count($details) == 6){
-        $ussd_text = "Enter your Score in SST";
+        $ussd_text = "Edutele Services\n\nEnter your Score in SST";
         ussd_proceed($ussd_text);
         }
 
     else if(count($details) == 7){
-        $ussd_text = "Enter your Score in SCience";
+        $ussd_text = "Edutele Services\n\nEnter your Score in SCience";
        ussd_proceed($ussd_text);
             }
     
     else if(count($details) == 8){
-       $ussd_text = "Enter your Score in MatheMatics";
+       $ussd_text = "Edutele Services\n\nEnter your Score in MatheMatics";
        ussd_proceed($ussd_text);
       }
 
     else if(count($details) == 9){
-       $ussd_text = "Enter the District";
+       $ussd_text = "Edutele Services\n\nEnter the District";
        ussd_proceed($ussd_text);
        }
 
     else if(count($details) == 10){
-        $ussd_text = "Enter the Telephone";
+        $ussd_text = "Edutele Services\n\nEnter the Telephone";
         ussd_proceed($ussd_text);
         }
     else if(count($details) == 11){
@@ -421,15 +421,15 @@ function registration($details,$phone,$dbh){
         $district=$details[9];    
         $telephone=$details[10];    
  
-        echo  "CON Fullnames: " . $fName. " " . $lName . "\n" .
+        echo  "CON Edutele Services\n Fullnames: " . $fName. " " . $lName . "\n" .
         "PLE Index Number: " . $index_number . "\n" .
         "Telephone No.: " . $telephone . "\n".
         "Subjects : \n".
         "English: " . $english . "\n".
         "Science: " . $science . "\n".
         "SST: " . $sst . "\n".
-        "MAthematics: " . $mtcs . "\n" .
-        "CON Confirm\n 1. Accept \n 2. Cancel \n .;
+        "MAthematics: " . $mtcs . "\n".
+        "Confirm\n 1. Accept \n 2. Cancel " ;
   
 
         }
