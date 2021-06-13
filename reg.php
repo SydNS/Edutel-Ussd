@@ -421,15 +421,15 @@ function registration($details,$phone,$dbh){
         $district=$details[9];    
         $telephone=$details[10];    
  
-        echo  "CON Confirm\n 1. Accept \n 2. Cancel \n .
-        Fullnames: " . $fName. " " . $lName . "\n" .
+        echo  "CON Fullnames: " . $fName. " " . $lName . "\n" .
         "PLE Index Number: " . $index_number . "\n" .
         "Telephone No.: " . $telephone . "\n".
         "Subjects : \n".
         "English: " . $english . "\n".
         "Science: " . $science . "\n".
         "SST: " . $sst . "\n".
-        "MAthematics: " . $mtcs . "\n" ;
+        "MAthematics: " . $mtcs . "\n" .
+        "CON Confirm\n 1. Accept \n 2. Cancel \n .;
   
 
         }
