@@ -405,7 +405,6 @@ function registration($details,$phone,$dbh){
        ussd_proceed($ussd_text);
        }
 
-
     else if(count($details) == 10){
         $ussd_text = "Enter the Telephone";
         ussd_proceed($ussd_text);
@@ -423,6 +422,16 @@ function registration($details,$phone,$dbh){
         $telephone=$details[10];    
  
         echo  "CON Confirm\n 1. Accept \n 2. Cancel \n";
+
+        echo  "CON Confirm\n 1. Accept \n 2. Cancel \n .
+        Fullnames: " . $fName. " " . $lName . "\n" .
+        "PLE Index Number: " . $index_number . "\n" .
+        "Telephone No.: " . $telephone . "\n".
+        "Subjects : \n".
+        "English: " . $english . "\n".
+        "Science: " . $science . "\n".
+        "SST: " . $sst . "\n".
+        "MAthematics: " . $mtcs . "\n" ;
   
 
         }
@@ -441,13 +450,13 @@ function registration($details,$phone,$dbh){
        
         $acceptDeny=$details[11]; 
 
-if($acceptDeny=="1"){  
+     if($acceptDeny=="1"){  
 
-$stmt = $dbh->prepare("INSERT INTO Registration(firstname, lastname, ageyears,telephone,district,indexnumber,english,sst,science,mtcs,reg_date) VALUES('$fName','$lName','$age','$index_number','$telephone','$district','$english','$sst','$science','$mtcs',NOW())");
-$stmt->execute();
-if($stmt->errorCode() == 0) {
-echo "END Thank you ".$fName." Registration was successful";
- } else {
+     $stmt = $dbh->prepare("INSERT INTO Registration(firstname, lastname, ageyears,telephone,district,indexnumber,english,sst,science,mtcs,reg_date) VALUES('$fName','$lName','$age','$index_number','$telephone','$district','$english','$sst','$science','$mtcs',NOW())");
+     $stmt->execute();
+     if($stmt->errorCode() == 0) {
+      echo "END Thank you ".$fName." Registration was successful";
+     } else {
             $errors = $stmt->errorInfo();
          }
       }
@@ -460,8 +469,6 @@ echo "END Thank you ".$fName." Registration was successful";
        }  
 
 }
-
-
 
   # close the pdo connection  
    $db = null;
