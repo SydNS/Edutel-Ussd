@@ -274,16 +274,15 @@ function lipa_na_mpesa($details,$phone,$db){
        }
 
     else if(count($details) == 6){
-        $admNo=$details[0];
+        // $admNo=$details[0];
         $fName=$details[1];
         $lName=$details[2];
         $class=$details[3];
         $paybill_number=$details[4];
         $amount=$details[5];  
  
-        echo  "CON Confirm\n 1. Accept \n 2. Cancel \n
-        Admission number: " . $admNo . "\n" .
-        "Fullnames: " . $fName. " " . $lName . "\n" .
+        echo  "CON Confirm\n 1. Accept \n 2. Cancel \n .
+        Fullnames: " . $fName. " " . $lName . "\n" .
         "Form: " . $class . "\n" .
         "Paybill Nunber: " . $paybill_number . "\n".
         "Amount: " . $amount . "\n" ;
@@ -366,37 +365,37 @@ function registration($details,$phone,$dbh){
         ussd_proceed($ussd_text);
         }
 
-      else if(count($details) == 2){
+    else if(count($details) == 2){
       $ussd_text = "Enter your last name";
       ussd_proceed($ussd_text);
        }
     
-       else if (count($details)==3){
+    else if (count($details)==3){
         $ussd_text="Enter your age";
         ussd_proceed($ussd_text);
         }
 
-      else if(count($details) == 4){
+    else if(count($details) == 4){
       $ussd_text = "Enter your PLE Index Number";
       ussd_proceed($ussd_text);
         }
     
-      else if(count($details) == 5){
+    else if(count($details) == 5){
             $ussd_text = "Enter your Score in English";
             ussd_proceed($ussd_text);
              }
       
-      else if(count($details) == 6){
+    else if(count($details) == 6){
         $ussd_text = "Enter your Score in SST";
         ussd_proceed($ussd_text);
         }
 
-      else if(count($details) == 7){
+    else if(count($details) == 7){
         $ussd_text = "Enter your Score in SCience";
        ussd_proceed($ussd_text);
             }
     
-      else if(count($details) == 8){
+    else if(count($details) == 8){
        $ussd_text = "Enter your Score in MatheMatics";
        ussd_proceed($ussd_text);
       }
@@ -412,45 +411,43 @@ function registration($details,$phone,$dbh){
         ussd_proceed($ussd_text);
         }
     else if(count($details) == 11){
-        $fName=$details[0];
-        $lName=$details[1];
-        $age=$details[2];
-        $index_number=$details[3];
-        $english=$details[4];
-        $sst=$details[5];
-        $science=$details[6];
-        $mtcs=$details[7];
-        $district=$details[8];    
-        $telephone=$details[9];    
+        $fName=$details[1];
+        $lName=$details[2];
+        $age=$details[3];
+        $index_number=$details[4];
+        $english=$details[5];
+        $sst=$details[6];
+        $science=$details[7];
+        $mtcs=$details[8];
+        $district=$details[9];    
+        $telephone=$details[10];    
  
         echo  "CON Confirm\n 1. Accept \n 2. Cancel \n";
   
 
         }
 
-        else if(count($details) == 12){ 
-        $fName=$details[0];
-        $lName=$details[1];
-        $age=$details[2];
-        $index_number=$details[3];
-        $english=$details[4];
-        $sst=$details[5]; 
-        $science=$details[6];
-        $mtcs=$details[7];
-        $district=$details[8];    
-        $telephone=$details[9];
-        $acceptDeny=$details[10]; 
+    else if(count($details) == 12){ 
+        $fName=$details[1];
+        $lName=$details[2];
+        $age=$details[3];
+        $index_number=$details[4];
+        $english=$details[5];
+        $sst=$details[6];
+        $science=$details[7];
+        $mtcs=$details[8];
+        $district=$details[9];    
+        $telephone=$details[10];   
+       
+        $acceptDeny=$details[11]; 
 
-       if($acceptDeny=="1"){  
+if($acceptDeny=="1"){  
 
 $stmt = $dbh->prepare("INSERT INTO Registration(firstname, lastname, ageyears,telephone,district,indexnumber,english,sst,science,mtcs,reg_date) VALUES('$fName','$lName','$age','$index_number','$telephone','$district','$english','$sst','$science','$mtcs',NOW())");
-
-
-        $stmt->execute();
-        if($stmt->errorCode() == 0) {
-            echo "CON Thank you ".$fName." Registration was successful";
-             
-          } else {
+$stmt->execute();
+if($stmt->errorCode() == 0) {
+echo "END Thank you ".$fName." Registration was successful";
+ } else {
             $errors = $stmt->errorInfo();
          }
       }
